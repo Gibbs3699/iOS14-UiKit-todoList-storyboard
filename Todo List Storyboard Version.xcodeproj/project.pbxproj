@@ -14,6 +14,7 @@
 		DC94FDD928BB64810053EEFC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC94FDD728BB64810053EEFC /* Main.storyboard */; };
 		DC94FDDB28BB64830053EEFC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC94FDDA28BB64830053EEFC /* Assets.xcassets */; };
 		DC94FDDE28BB64830053EEFC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC94FDDC28BB64830053EEFC /* LaunchScreen.storyboard */; };
+		DC94FDE728BB772A0053EEFC /* menuSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC94FDE628BB772A0053EEFC /* menuSection.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		DC94FDDA28BB64830053EEFC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DC94FDDD28BB64830053EEFC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DC94FDDF28BB64830053EEFC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DC94FDE628BB772A0053EEFC /* menuSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = menuSection.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,7 @@
 		DC94FDD028BB64810053EEFC /* Todo List Storyboard Version */ = {
 			isa = PBXGroup;
 			children = (
+				DC94FDE528BB77130053EEFC /* Model */,
 				DC94FDD128BB64810053EEFC /* AppDelegate.swift */,
 				DC94FDD328BB64810053EEFC /* SceneDelegate.swift */,
 				DC94FDD528BB64810053EEFC /* TaskViewController.swift */,
@@ -89,6 +92,14 @@
 				DC94FDDF28BB64830053EEFC /* Info.plist */,
 			);
 			path = "Todo List Storyboard Version";
+			sourceTree = "<group>";
+		};
+		DC94FDE528BB77130053EEFC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DC94FDE628BB772A0053EEFC /* menuSection.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -208,6 +219,7 @@
 			files = (
 				DC94FDD628BB64810053EEFC /* TaskViewController.swift in Sources */,
 				DC94FDD228BB64810053EEFC /* AppDelegate.swift in Sources */,
+				DC94FDE728BB772A0053EEFC /* menuSection.swift in Sources */,
 				DC94FDD428BB64810053EEFC /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
