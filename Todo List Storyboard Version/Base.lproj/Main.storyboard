@@ -61,6 +61,9 @@
                                 <segment title="First"/>
                                 <segment title="Second"/>
                             </segments>
+                            <connections>
+                                <action selector="segmentedControlChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="dpr-lF-ZiG"/>
+                            </connections>
                         </segmentedControl>
                     </navigationItem>
                     <connections>

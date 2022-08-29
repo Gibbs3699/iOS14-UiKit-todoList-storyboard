@@ -31,7 +31,33 @@ class TaskViewController: UIViewController {
         }
         
         menuSegmentedControl.selectedSegmentIndex = 0
+        showContainerView(for: .ongoing)
         
     }
+    
+    @IBAction func segmentedControlChanged(_ sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+        case 0:
+            showContainerView(for: .ongoing)
+        case 1:
+            showContainerView(for: .done)
+        default:
+            break
+        }
+    }
+    
+    
+    private func showContainerView(for section: MenuSection) {
+        switch section {
+        case .ongoing:
+            ongoingTasksContainerView.isHidden = false
+            doneTasksContainerView.isHidden = true
+        case .done:
+            ongoingTasksContainerView.isHidden = true
+            doneTasksContainerView.isHidden = false
+        }
+        
+    }
+    
 }
 
