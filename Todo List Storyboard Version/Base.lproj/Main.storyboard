@@ -24,12 +24,32 @@
                                     <constraint firstAttribute="height" constant="80" id="iZg-Yp-YtB"/>
                                 </constraints>
                             </view>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cnh-JY-rPH" userLabel="Done Tasks Container View">
+                                <rect key="frame" x="0.0" y="140" width="414" height="676"/>
+                                <connections>
+                                    <segue destination="zGo-jW-ZXd" kind="embed" id="hak-Kk-c8R"/>
+                                </connections>
+                            </containerView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pIn-GG-ZZE" userLabel="Ongoing Tasks Container View">
+                                <rect key="frame" x="0.0" y="140" width="414" height="676"/>
+                                <connections>
+                                    <segue destination="ZbM-cN-yc2" kind="embed" id="zLx-cI-rJg"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="Cnh-JY-rPH" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="3og-u2-eRV"/>
+                            <constraint firstItem="Cnh-JY-rPH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="9TR-oe-dGd"/>
                             <constraint firstItem="IJg-wB-zEF" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Bye-dq-EA2"/>
+                            <constraint firstItem="pIn-GG-ZZE" firstAttribute="top" secondItem="Cnh-JY-rPH" secondAttribute="top" id="N7r-Pq-f5Z"/>
+                            <constraint firstItem="pIn-GG-ZZE" firstAttribute="leading" secondItem="Cnh-JY-rPH" secondAttribute="leading" id="OJZ-5b-ePx"/>
+                            <constraint firstItem="IJg-wB-zEF" firstAttribute="top" secondItem="Cnh-JY-rPH" secondAttribute="bottom" id="PJX-9S-61n"/>
+                            <constraint firstItem="pIn-GG-ZZE" firstAttribute="trailing" secondItem="Cnh-JY-rPH" secondAttribute="trailing" id="S2Z-TC-6SC"/>
                             <constraint firstAttribute="bottom" secondItem="IJg-wB-zEF" secondAttribute="bottom" id="c9h-ks-G7u"/>
+                            <constraint firstItem="Cnh-JY-rPH" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="ckH-tQ-EJr"/>
+                            <constraint firstItem="pIn-GG-ZZE" firstAttribute="bottom" secondItem="Cnh-JY-rPH" secondAttribute="bottom" id="hJC-fn-Lbo"/>
                             <constraint firstItem="IJg-wB-zEF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="vhA-rh-rYG"/>
                         </constraints>
                     </view>
@@ -44,12 +64,70 @@
                         </segmentedControl>
                     </navigationItem>
                     <connections>
+                        <outlet property="doneTasksContainerView" destination="Cnh-JY-rPH" id="6jt-Bs-dWB"/>
                         <outlet property="menuSegmentedControl" destination="2af-u8-dPo" id="WBi-3f-klw"/>
+                        <outlet property="ongoingTasksContainerView" destination="pIn-GG-ZZE" id="R7v-v4-rdk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="971.01449275362324" y="83.705357142857139"/>
+        </scene>
+        <!--Done Tasks Table View Controller-->
+        <scene sceneID="I5K-Fb-PZ9">
+            <objects>
+                <tableViewController id="zGo-jW-ZXd" customClass="DoneTasksTableViewController" customModule="Todo_List_Storyboard_Version" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="diS-tk-BD5">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="676"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="exd-Td-65t">
+                                <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="exd-Td-65t" id="bNY-5E-zVa">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="zGo-jW-ZXd" id="0NS-dp-oKC"/>
+                            <outlet property="delegate" destination="zGo-jW-ZXd" id="Ca0-me-B3f"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oIG-i3-3YG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1859" y="424"/>
+        </scene>
+        <!--Ongoing Tasks Table View Controller-->
+        <scene sceneID="f4X-Aw-fvU">
+            <objects>
+                <tableViewController id="ZbM-cN-yc2" customClass="OngoingTasksTableViewController" customModule="Todo_List_Storyboard_Version" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="54p-LL-uI2">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="676"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="A45-o6-FIZ">
+                                <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="A45-o6-FIZ" id="Ym1-Lw-r8t">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="ZbM-cN-yc2" id="XlE-l7-W8A"/>
+                            <outlet property="delegate" destination="ZbM-cN-yc2" id="jQh-03-K2w"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="s1h-m2-K3k" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2044" y="-309"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ehX-1m-kdn">

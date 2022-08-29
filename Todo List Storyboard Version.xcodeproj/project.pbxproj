@@ -14,7 +14,9 @@
 		DC94FDD928BB64810053EEFC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC94FDD728BB64810053EEFC /* Main.storyboard */; };
 		DC94FDDB28BB64830053EEFC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC94FDDA28BB64830053EEFC /* Assets.xcassets */; };
 		DC94FDDE28BB64830053EEFC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC94FDDC28BB64830053EEFC /* LaunchScreen.storyboard */; };
-		DC94FDE728BB772A0053EEFC /* menuSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC94FDE628BB772A0053EEFC /* menuSection.swift */; };
+		DC94FDE728BB772A0053EEFC /* MenuSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC94FDE628BB772A0053EEFC /* MenuSection.swift */; };
+		DC94FDEE28BC95E70053EEFC /* OngoingTasksTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC94FDED28BC95E70053EEFC /* OngoingTasksTableViewController.swift */; };
+		DC94FDF028BC96190053EEFC /* DoneTasksTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC94FDEF28BC96190053EEFC /* DoneTasksTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,7 +31,9 @@
 		DC94FDDA28BB64830053EEFC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DC94FDDD28BB64830053EEFC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DC94FDDF28BB64830053EEFC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DC94FDE628BB772A0053EEFC /* menuSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = menuSection.swift; sourceTree = "<group>"; };
+		DC94FDE628BB772A0053EEFC /* MenuSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuSection.swift; sourceTree = "<group>"; };
+		DC94FDED28BC95E70053EEFC /* OngoingTasksTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OngoingTasksTableViewController.swift; sourceTree = "<group>"; };
+		DC94FDEF28BC96190053EEFC /* DoneTasksTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneTasksTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +86,7 @@
 		DC94FDD028BB64810053EEFC /* Todo List Storyboard Version */ = {
 			isa = PBXGroup;
 			children = (
+				DC94FDE828BC95900053EEFC /* Controller */,
 				DC94FDE528BB77130053EEFC /* Model */,
 				DC94FDD128BB64810053EEFC /* AppDelegate.swift */,
 				DC94FDD328BB64810053EEFC /* SceneDelegate.swift */,
@@ -97,9 +102,18 @@
 		DC94FDE528BB77130053EEFC /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				DC94FDE628BB772A0053EEFC /* menuSection.swift */,
+				DC94FDE628BB772A0053EEFC /* MenuSection.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		DC94FDE828BC95900053EEFC /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				DC94FDED28BC95E70053EEFC /* OngoingTasksTableViewController.swift */,
+				DC94FDEF28BC96190053EEFC /* DoneTasksTableViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -219,8 +233,10 @@
 			files = (
 				DC94FDD628BB64810053EEFC /* TaskViewController.swift in Sources */,
 				DC94FDD228BB64810053EEFC /* AppDelegate.swift in Sources */,
-				DC94FDE728BB772A0053EEFC /* menuSection.swift in Sources */,
+				DC94FDE728BB772A0053EEFC /* MenuSection.swift in Sources */,
 				DC94FDD428BB64810053EEFC /* SceneDelegate.swift in Sources */,
+				DC94FDF028BC96190053EEFC /* DoneTasksTableViewController.swift in Sources */,
+				DC94FDEE28BC95E70053EEFC /* OngoingTasksTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

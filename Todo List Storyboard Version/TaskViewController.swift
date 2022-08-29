@@ -10,18 +10,23 @@ import UIKit
 class TaskViewController: UIViewController {
 
     @IBOutlet weak var menuSegmentedControl: UISegmentedControl!
+    @IBOutlet weak var ongoingTasksContainerView: UIView!
+    @IBOutlet weak var doneTasksContainerView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.backgroundColor = .systemBackground
+        ongoingTasksContainerView.isHidden = true
+        doneTasksContainerView.isHidden = false
+        
         setupSegmentedControl()
     }
 
     private func setupSegmentedControl() {
         menuSegmentedControl.removeAllSegments() // remove selected
         
-        menuSection.allCases.enumerated().forEach { (index, section) in
+        MenuSection.allCases.enumerated().forEach { (index, section) in
             menuSegmentedControl.insertSegment(withTitle: section.rawValue, at: index, animated: true)
         }
         
