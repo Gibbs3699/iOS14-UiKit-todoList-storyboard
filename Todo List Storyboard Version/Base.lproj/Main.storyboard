@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -36,11 +37,34 @@
                                     <segue destination="ZbM-cN-yc2" kind="embed" id="zLx-cI-rJg"/>
                                 </connections>
                             </containerView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zLX-2g-k0W">
+                                <rect key="frame" x="173.5" y="776.5" width="67" height="67"/>
+                                <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="67" id="Asm-UC-Syg"/>
+                                    <constraint firstAttribute="width" constant="67" id="dYw-Wg-md8"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="67" id="gmN-Nl-6lj"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal">
+                                    <imageReference key="image" image="plus" catalog="system" symbolScale="default"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="33"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="addTaskButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lS8-Da-fvI"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Cnh-JY-rPH" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="3og-u2-eRV"/>
+                            <constraint firstItem="zLX-2g-k0W" firstAttribute="firstBaseline" secondItem="IJg-wB-zEF" secondAttribute="firstBaseline" id="4ai-bY-Zo3"/>
                             <constraint firstItem="Cnh-JY-rPH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="9TR-oe-dGd"/>
                             <constraint firstItem="IJg-wB-zEF" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Bye-dq-EA2"/>
                             <constraint firstItem="pIn-GG-ZZE" firstAttribute="top" secondItem="Cnh-JY-rPH" secondAttribute="top" id="N7r-Pq-f5Z"/>
@@ -50,6 +74,7 @@
                             <constraint firstAttribute="bottom" secondItem="IJg-wB-zEF" secondAttribute="bottom" id="c9h-ks-G7u"/>
                             <constraint firstItem="Cnh-JY-rPH" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="ckH-tQ-EJr"/>
                             <constraint firstItem="pIn-GG-ZZE" firstAttribute="bottom" secondItem="Cnh-JY-rPH" secondAttribute="bottom" id="hJC-fn-Lbo"/>
+                            <constraint firstItem="zLX-2g-k0W" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="tWu-7y-nOd"/>
                             <constraint firstItem="IJg-wB-zEF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="vhA-rh-rYG"/>
                         </constraints>
                     </view>
@@ -70,11 +95,27 @@
                         <outlet property="doneTasksContainerView" destination="Cnh-JY-rPH" id="6jt-Bs-dWB"/>
                         <outlet property="menuSegmentedControl" destination="2af-u8-dPo" id="WBi-3f-klw"/>
                         <outlet property="ongoingTasksContainerView" destination="pIn-GG-ZZE" id="R7v-v4-rdk"/>
+                        <segue destination="cyl-ej-2CB" kind="presentation" identifier="showAddNewTask" id="FPt-nq-zYW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="971.01449275362324" y="83.705357142857139"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="dFg-os-DNE">
+            <objects>
+                <viewController id="cyl-ej-2CB" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="sJB-FH-OvF">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="2vR-5W-FO6"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ByW-dp-NfV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1960" y="94"/>
         </scene>
         <!--Done Tasks Table View Controller-->
         <scene sceneID="I5K-Fb-PZ9">
@@ -102,7 +143,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oIG-i3-3YG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1859" y="424"/>
+            <point key="canvasLocation" x="1535" y="751"/>
         </scene>
         <!--Ongoing Tasks Table View Controller-->
         <scene sceneID="f4X-Aw-fvU">
@@ -130,7 +171,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s1h-m2-K3k" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2044" y="-309"/>
+            <point key="canvasLocation" x="613" y="752"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ehX-1m-kdn">
@@ -152,6 +193,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="plus" catalog="system" width="128" height="113"/>
         <systemColor name="secondarySystemBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
