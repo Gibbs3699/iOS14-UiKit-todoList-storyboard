@@ -12,6 +12,7 @@
 		DC8BEF1828BF38E90087EC0A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DC8BEF1728BF38E90087EC0A /* GoogleService-Info.plist */; };
 		DC8BEF1A28BF39FC0087EC0A /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8BEF1928BF39FC0087EC0A /* Task.swift */; };
 		DC8BEF1D28BF3DE20087EC0A /* TasksVCDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8BEF1C28BF3DE20087EC0A /* TasksVCDelegate.swift */; };
+		DC8BEF2028BF42560087EC0A /* OngoingTasksTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8BEF1F28BF42560087EC0A /* OngoingTasksTableViewCell.swift */; };
 		DC94FDD228BB64810053EEFC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC94FDD128BB64810053EEFC /* AppDelegate.swift */; };
 		DC94FDD428BB64810053EEFC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC94FDD328BB64810053EEFC /* SceneDelegate.swift */; };
 		DC94FDD628BB64810053EEFC /* TaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC94FDD528BB64810053EEFC /* TaskViewController.swift */; };
@@ -32,6 +33,7 @@
 		DC8BEF1728BF38E90087EC0A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DC8BEF1928BF39FC0087EC0A /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		DC8BEF1C28BF3DE20087EC0A /* TasksVCDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksVCDelegate.swift; sourceTree = "<group>"; };
+		DC8BEF1F28BF42560087EC0A /* OngoingTasksTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OngoingTasksTableViewCell.swift; sourceTree = "<group>"; };
 		DC94FDCE28BB64810053EEFC /* Todo List Storyboard Version.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Todo List Storyboard Version.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC94FDD128BB64810053EEFC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DC94FDD328BB64810053EEFC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -91,6 +93,14 @@
 			path = Protocol;
 			sourceTree = "<group>";
 		};
+		DC8BEF1E28BF423D0087EC0A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DC8BEF1F28BF42560087EC0A /* OngoingTasksTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		DC94FDC528BB64810053EEFC = {
 			isa = PBXGroup;
 			children = (
@@ -112,6 +122,7 @@
 		DC94FDD028BB64810053EEFC /* Todo List Storyboard Version */ = {
 			isa = PBXGroup;
 			children = (
+				DC8BEF1E28BF423D0087EC0A /* View */,
 				DC8BEF1B28BF3DCB0087EC0A /* Protocol */,
 				DC8BEF1428BF2F3E0087EC0A /* Service */,
 				DC94FDE828BC95900053EEFC /* Controller */,
@@ -263,6 +274,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC8BEF2028BF42560087EC0A /* OngoingTasksTableViewCell.swift in Sources */,
 				DC8BEF1628BF2F510087EC0A /* DatabaseManager.swift in Sources */,
 				DC94FDD628BB64810053EEFC /* TaskViewController.swift in Sources */,
 				DC94FDF228BCA6350053EEFC /* NewTaskViewController.swift in Sources */,
