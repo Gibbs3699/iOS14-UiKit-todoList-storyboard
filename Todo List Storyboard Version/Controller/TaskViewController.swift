@@ -13,6 +13,8 @@ class TaskViewController: UIViewController {
     @IBOutlet weak var ongoingTasksContainerView: UIView!
     @IBOutlet weak var doneTasksContainerView: UIView!
     
+    private let databaseManager = DatabaseManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -59,6 +61,11 @@ class TaskViewController: UIViewController {
         
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showNewTask", let destination = segue.destination as? NewTaskViewController {
+            destination.delegate = self
+        }
+    }
     
     @IBAction func addTaskButtonTapped(_ sender: UIButton) {
         performSegue(withIdentifier: "showNewTask", sender: nil)
@@ -66,3 +73,19 @@ class TaskViewController: UIViewController {
     
 }
 
+extension TaskViewController: TasksVCDelegate {
+    func didAddTask(task: Task) {
+        
+        presentedViewController?.dismiss(animated: true, completion: { [unowned self] in
+            self.databaseManager.addTask(task: task) { (result) in
+                switch result {
+                case .success:
+                    print("Saved!")
+                case .failure(let error):
+                    print("error: \(error.localizedDescription)")
+                }
+            }
+        })
+    }
+    
+}
