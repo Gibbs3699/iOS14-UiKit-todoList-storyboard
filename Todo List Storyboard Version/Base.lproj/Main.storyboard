@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IJg-wB-zEF" customClass="TaskView">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IJg-wB-zEF">
                                 <rect key="frame" x="0.0" y="816" width="414" height="80"/>
                                 <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                                 <constraints>
@@ -151,6 +151,9 @@
                                                                 <buttonConfiguration key="configuration" style="plain" title="Save">
                                                                     <fontDescription key="titleFontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="16"/>
                                                                 </buttonConfiguration>
+                                                                <connections>
+                                                                    <action selector="saveButtonTapped:" destination="cyl-ej-2CB" eventType="touchUpInside" id="Wjg-Gd-T5x"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                     </stackView>

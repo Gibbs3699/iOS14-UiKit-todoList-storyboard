@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		4017BBE615B63B52D07E2433 /* Pods_Todo_List_Storyboard_Version.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21450816AF8FA02D231B8033 /* Pods_Todo_List_Storyboard_Version.framework */; };
+		DC8BEF1628BF2F510087EC0A /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8BEF1528BF2F510087EC0A /* DatabaseManager.swift */; };
+		DC8BEF1828BF38E90087EC0A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DC8BEF1728BF38E90087EC0A /* GoogleService-Info.plist */; };
+		DC8BEF1A28BF39FC0087EC0A /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8BEF1928BF39FC0087EC0A /* Task.swift */; };
 		DC94FDD228BB64810053EEFC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC94FDD128BB64810053EEFC /* AppDelegate.swift */; };
 		DC94FDD428BB64810053EEFC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC94FDD328BB64810053EEFC /* SceneDelegate.swift */; };
 		DC94FDD628BB64810053EEFC /* TaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC94FDD528BB64810053EEFC /* TaskViewController.swift */; };
@@ -24,6 +27,9 @@
 		21450816AF8FA02D231B8033 /* Pods_Todo_List_Storyboard_Version.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Todo_List_Storyboard_Version.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D1FC36746F05AD55B2014A8 /* Pods-Todo List Storyboard Version.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Todo List Storyboard Version.release.xcconfig"; path = "Target Support Files/Pods-Todo List Storyboard Version/Pods-Todo List Storyboard Version.release.xcconfig"; sourceTree = "<group>"; };
 		73814257E910363C3BCDDA0B /* Pods-Todo List Storyboard Version.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Todo List Storyboard Version.debug.xcconfig"; path = "Target Support Files/Pods-Todo List Storyboard Version/Pods-Todo List Storyboard Version.debug.xcconfig"; sourceTree = "<group>"; };
+		DC8BEF1528BF2F510087EC0A /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
+		DC8BEF1728BF38E90087EC0A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		DC8BEF1928BF39FC0087EC0A /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		DC94FDCE28BB64810053EEFC /* Todo List Storyboard Version.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Todo List Storyboard Version.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC94FDD128BB64810053EEFC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DC94FDD328BB64810053EEFC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -67,6 +73,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		DC8BEF1428BF2F3E0087EC0A /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				DC8BEF1528BF2F510087EC0A /* DatabaseManager.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		DC94FDC528BB64810053EEFC = {
 			isa = PBXGroup;
 			children = (
@@ -88,15 +102,16 @@
 		DC94FDD028BB64810053EEFC /* Todo List Storyboard Version */ = {
 			isa = PBXGroup;
 			children = (
+				DC8BEF1428BF2F3E0087EC0A /* Service */,
 				DC94FDE828BC95900053EEFC /* Controller */,
 				DC94FDE528BB77130053EEFC /* Model */,
 				DC94FDD128BB64810053EEFC /* AppDelegate.swift */,
 				DC94FDD328BB64810053EEFC /* SceneDelegate.swift */,
-				DC94FDD528BB64810053EEFC /* TaskViewController.swift */,
 				DC94FDD728BB64810053EEFC /* Main.storyboard */,
 				DC94FDDA28BB64830053EEFC /* Assets.xcassets */,
 				DC94FDDC28BB64830053EEFC /* LaunchScreen.storyboard */,
 				DC94FDDF28BB64830053EEFC /* Info.plist */,
+				DC8BEF1728BF38E90087EC0A /* GoogleService-Info.plist */,
 			);
 			path = "Todo List Storyboard Version";
 			sourceTree = "<group>";
@@ -105,6 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				DC94FDE628BB772A0053EEFC /* MenuSection.swift */,
+				DC8BEF1928BF39FC0087EC0A /* Task.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -112,6 +128,7 @@
 		DC94FDE828BC95900053EEFC /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				DC94FDD528BB64810053EEFC /* TaskViewController.swift */,
 				DC94FDED28BC95E70053EEFC /* OngoingTasksTableViewController.swift */,
 				DC94FDEF28BC96190053EEFC /* DoneTasksTableViewController.swift */,
 				DC94FDF128BCA6350053EEFC /* NewTaskViewController.swift */,
@@ -180,6 +197,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC94FDDE28BB64830053EEFC /* LaunchScreen.storyboard in Resources */,
+				DC8BEF1828BF38E90087EC0A /* GoogleService-Info.plist in Resources */,
 				DC94FDDB28BB64830053EEFC /* Assets.xcassets in Resources */,
 				DC94FDD928BB64810053EEFC /* Main.storyboard in Resources */,
 			);
@@ -234,12 +252,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC8BEF1628BF2F510087EC0A /* DatabaseManager.swift in Sources */,
 				DC94FDD628BB64810053EEFC /* TaskViewController.swift in Sources */,
 				DC94FDF228BCA6350053EEFC /* NewTaskViewController.swift in Sources */,
 				DC94FDD228BB64810053EEFC /* AppDelegate.swift in Sources */,
 				DC94FDE728BB772A0053EEFC /* MenuSection.swift in Sources */,
 				DC94FDD428BB64810053EEFC /* SceneDelegate.swift in Sources */,
 				DC94FDF028BC96190053EEFC /* DoneTasksTableViewController.swift in Sources */,
+				DC8BEF1A28BF39FC0087EC0A /* Task.swift in Sources */,
 				DC94FDEE28BC95E70053EEFC /* OngoingTasksTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

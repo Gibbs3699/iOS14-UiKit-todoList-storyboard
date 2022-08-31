@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>538987915100-i6gjfost0ja3br3k88clpu70tjnpkqgf.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.538987915100-i6gjfost0ja3br3k88clpu70tjnpkqgf</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCd9buzToR-1dj3jTCPlu4KgDY9TnWi6SY</string>
+	<key>GCM_SENDER_ID</key>
+	<string>538987915100</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>Kamonpan.Todo-List-Storyboard-Version</string>
+	<key>PROJECT_ID</key>
+	<string>todolist-6baaa</string>
+	<key>STORAGE_BUCKET</key>
+	<string>todolist-6baaa.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:538987915100:ios:2c377c745dbac85e92c399</string>
+</dict>
+</plist>

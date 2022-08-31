@@ -19,6 +19,8 @@ class NewTaskViewController: UIViewController {
     private var subscribers = Set<AnyCancellable>()
     @Published private var taskString: String?
     
+    private let databaseManager = DatabaseManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -87,6 +89,23 @@ class NewTaskViewController: UIViewController {
     
     @IBAction func calendarButtonTapped(_ sender: Any) {
         
+    }
+    
+    @IBAction func saveButtonTapped(_ sender: Any) {
+        guard let taskString = taskString else {
+            return
+        }
+            
+        let task = Task(title: taskString)
+        
+        databaseManager.addTask(task: task) { (result) in
+            switch result {
+            case .success:
+                print("Saved!")
+            case .failure(let error):
+                print("error: \(error.localizedDescription)")
+            }
+        }
     }
     
 }
