@@ -9,22 +9,46 @@ import UIKit
 
 class DoneTasksTableViewController: UITableViewController {
 
+    private let databaseManager = DatabaseManager()
+    
+    private var tasks: [Task] = [] {
+        didSet {
+            tableView.reloadData()
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.backgroundColor = .blue
+        view.backgroundColor = .systemBackground
+        
+        addTasksListener()
+    }
+    
+    private func addTasksListener() {
+        databaseManager.addTaskListener(forDoneTasks: true) { [weak self] (result) in
+            switch result {
+            case .success(let tasks):
+                self?.tasks = tasks
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
 
-    // MARK: - Table view data source
+}
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
+extension DoneTasksTableViewController {
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return tasks.count
     }
-
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let task = tasks[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: DoneTasksTableViewCell.identifier, for: indexPath) as! DoneTasksTableViewCell
+        cell.configure(with: task)
+        
+        return cell
+    }
 }

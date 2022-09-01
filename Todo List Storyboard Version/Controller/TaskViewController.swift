@@ -75,7 +75,6 @@ class TaskViewController: UIViewController {
 
 extension TaskViewController: TasksVCDelegate {
     func didAddTask(task: Task) {
-        
         presentedViewController?.dismiss(animated: true, completion: { [unowned self] in
             self.databaseManager.addTask(task: task) { (result) in
                 switch result {

@@ -7,6 +7,7 @@
 
 import FirebaseFirestore
 import FirebaseFirestoreSwift
+import Foundation
 
 class DatabaseManager {
     
@@ -29,21 +30,37 @@ class DatabaseManager {
         }
     }
     
-    func addTaskListener(completion: @escaping (Result<[Task],Error>) -> Void) {
+    func addTaskListener(forDoneTasks isDone: Bool, completion: @escaping (Result<[Task],Error>) -> Void) {
         
-        listener = taskCollection.addSnapshotListener({ (snapshot, error) in
+        listener = taskCollection
+            .whereField("isDone", isEqualTo: isDone)
+            .order(by: "createdAt", descending: true)
+            .addSnapshotListener({ (snapshot, error) in
             if let error = error {
                 completion(.failure(error))
             } else {
-                
-                let tempTasks = try? snapshot?.documents.compactMap({
-                    return try $0.data(as: Task.self)
-                })
-                
-                let tasks = tempTasks ?? []
-                
+                var tasks = [Task]()
+                do {
+                    tasks = try snapshot?.documents.compactMap({
+                        return try $0.data(as: Task.self)
+                    }) ?? []
+                } catch(let error) {
+                    completion(.failure(error))
+                }
                 completion(.success(tasks))
             }
         })
+    }
+    
+    func updateTaskToDone(id: String, completion: @escaping (Result<Void,Error>) -> Void) {
+        let fields: [String : Any] = ["isDone": true, "doneAt": Date()]
+        taskCollection.document(id).updateData(fields) { (error) in
+            if let error = error {
+                completion(.failure(error))
+            } else {
+                completion(.success(()))
+            }
+            
+        }
     }
 }

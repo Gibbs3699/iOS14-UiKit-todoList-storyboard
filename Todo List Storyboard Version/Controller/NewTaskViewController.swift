@@ -93,7 +93,7 @@ class NewTaskViewController: UIViewController {
     }
     
     @IBAction func saveButtonTapped(_ sender: Any) {
-        guard let taskString = taskString else {
+        guard let taskString = self.taskString else {
             return
         }
             
