@@ -16,6 +16,16 @@ class DatabaseManager {
     private lazy var taskCollection = db.collection("tasks")
     private var listener: ListenerRegistration?
     
+    func deleteTask(id: String, completion: @escaping (Result<Void,Error>) -> Void) {
+        taskCollection.document(id).delete() { (error) in
+            if let error = error {
+                completion(.failure(error))
+            } else {
+                completion(.success(()))
+            }
+        }
+    }
+    
     func addTask(task: Task, completion: @escaping (Result<Void,Error>) -> Void) {
         do {
             _ = try taskCollection.addDocument(from: task, completion: { (error) in

@@ -8,9 +8,15 @@
 import UIKit
 import Loaf
 
+protocol OngoingTasksTVCDelegate: AnyObject {
+    func showOptions(for task: Task)
+}
+
 class OngoingTasksTableViewController: UITableViewController, Animatable {
 
     private let databaseManager = DatabaseManager()
+    
+    weak var delegate: OngoingTasksTVCDelegate?
     
     private var tasks: [Task] = [] {
         didSet {
@@ -65,5 +71,12 @@ extension OngoingTasksTableViewController {
         }
         
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        tableView.deselectRow(at: indexPath, animated: true)
+        let task = tasks[indexPath.row]
+        delegate?.showOptions(for: task)
     }
 }

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TaskViewController: UIViewController {
+class TaskViewController: UIViewController, Animatable {
 
     @IBOutlet weak var menuSegmentedControl: UISegmentedControl!
     @IBOutlet weak var ongoingTasksContainerView: UIView!
@@ -48,7 +48,6 @@ class TaskViewController: UIViewController {
         }
     }
     
-    
     private func showContainerView(for section: MenuSection) {
         switch section {
         case .ongoing:
@@ -64,11 +63,25 @@ class TaskViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showNewTask", let destination = segue.destination as? NewTaskViewController {
             destination.delegate = self
+        } else if segue.identifier == "showOngoingTask" , let destination = segue.destination as? OngoingTasksTableViewController {
+            destination.delegate = self
         }
     }
     
     @IBAction func addTaskButtonTapped(_ sender: UIButton) {
         performSegue(withIdentifier: "showNewTask", sender: nil)
+    }
+    
+    private func deleteTask(id: String) {
+        databaseManager.deleteTask(id: id) { [weak self] (result) in
+            switch result {
+            case .success():
+                self?.showToast(state: .success, message: "Task deleted successfully", duration: 2.0)
+            case .failure(let error):
+                self?.showToast(state: .error, message: error.localizedDescription, duration: 2.0)
+                print(error.localizedDescription)
+            }
+        }
     }
     
 }
@@ -85,6 +98,23 @@ extension TaskViewController: TasksVCDelegate {
                 }
             }
         })
+    }
+    
+}
+
+extension TaskViewController: OngoingTasksTVCDelegate {
+    func showOptions(for task: Task) {
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { [unowned self] _ in
+            guard let id = task.id else { return }
+            self.deleteTask(id: id)
+            print("delete task: \(task.title)")
+        }
+        alertController.addAction(cancelAction)
+        alertController.addAction(deleteAction)
+        present(alertController, animated: true, completion: nil)
     }
     
 }
