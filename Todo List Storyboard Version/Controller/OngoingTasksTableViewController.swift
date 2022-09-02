@@ -6,8 +6,9 @@
 //
 
 import UIKit
+import Loaf
 
-class OngoingTasksTableViewController: UITableViewController {
+class OngoingTasksTableViewController: UITableViewController, Animatable {
 
     private let databaseManager = DatabaseManager()
     
@@ -36,12 +37,14 @@ class OngoingTasksTableViewController: UITableViewController {
     
     private func handleActionButton(for task: Task) {
         guard let id = task.id else { return }
-        databaseManager.updateTaskToDone(id: id) { (result) in
+        databaseManager.updateTaskToDone(id: id) { [weak self] (result) in
             switch result {
             case .success(_):
+                self?.showToast(state: .success, message: "Moved to Done", duration: 2.0)
                 print("set to done succesfully")
             case .failure(let error):
-                print(error)
+                self?.showToast(state: .error, message: error.localizedDescription, duration: 2.0)
+                print(error.localizedDescription)
             }
         }
     }
