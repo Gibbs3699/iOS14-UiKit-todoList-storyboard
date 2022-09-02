@@ -11,7 +11,13 @@ class DoneTasksTableViewCell: UITableViewCell {
 
     static let identifier = "DoneTasksTableViewCell"
     
+    var actionButtonDidTap: (() -> Void)?
+    
     @IBOutlet weak var titleLabel: UILabel!
+    
+    @IBAction func actionButtonTapped(_ sender: UIButton) {
+        actionButtonDidTap?()
+    }
     
     func configure(with task: Task) {
         titleLabel.text = task.title
