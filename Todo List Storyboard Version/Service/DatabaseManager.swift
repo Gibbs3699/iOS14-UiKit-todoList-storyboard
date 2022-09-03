@@ -26,6 +26,17 @@ class DatabaseManager {
         }
     }
     
+    func editTask(id: String, title: String, deadline: Date?, completion: @escaping (Result<Void,Error>) -> Void) {
+        let data: [String : Any] = ["title": title, "deadline": deadline as Any]
+        taskCollection.document(id).updateData(data) { (error) in
+            if let error = error {
+                completion(.failure(error))
+            } else {
+                completion(.success(()))
+            }
+        }
+    }
+    
     func addTask(task: Task, completion: @escaping (Result<Void,Error>) -> Void) {
         do {
             _ = try taskCollection.addDocument(from: task, completion: { (error) in

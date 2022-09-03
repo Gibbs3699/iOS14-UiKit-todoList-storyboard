@@ -18,13 +18,14 @@ class NewTaskViewController: UIViewController {
     @IBOutlet weak var deadlineLabel: UILabel!
     
     private var subscribers = Set<AnyCancellable>()
+    var taskToEdit: Task?
     
     @Published private var taskString: String?
     @Published private var deadline: Date?
     
-    weak var delegate: TasksVCDelegate?
+    weak var delegate: NewTasksVCDelegate?
     
-    private lazy var calendarView: UIView = {
+    private lazy var calendarView: CalendarView = {
         let view = CalendarView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = .secondarySystemBackground
@@ -67,6 +68,13 @@ class NewTaskViewController: UIViewController {
     private func setupViews() {
         backgroundView.backgroundColor = UIColor.init(white: 0.3, alpha: 0.4)
         containerViewButtonConstraint.constant = -containerView.frame.height
+        if let taskToEdit = self.taskToEdit {
+            taskTextField.text = taskToEdit.title
+            taskString = taskToEdit.title
+            deadline = taskToEdit.deadline
+            saveButton.setTitle("Update", for: .normal)
+            calendarView.selectDate(date: taskToEdit.deadline)
+        }
     }
     
     private func setupGestures() {
@@ -131,9 +139,17 @@ class NewTaskViewController: UIViewController {
         guard let taskString = self.taskString else {
             return
         }
-            
-        let task = Task(title: taskString, deadLine: deadline)
-        delegate?.didAddTask(task: task)
+        var task = Task(title: taskString, deadline: deadline)
+        
+        if let id = taskToEdit?.id {
+            task.id = id
+        }
+        
+        if taskToEdit == nil {
+            delegate?.didAddTask(task: task)
+        } else {
+            delegate?.didEditTask(task: task)
+        }
     }
     
 }

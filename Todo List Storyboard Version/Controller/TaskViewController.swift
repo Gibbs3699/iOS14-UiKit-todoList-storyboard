@@ -66,6 +66,9 @@ class TaskViewController: UIViewController, Animatable {
             destination.delegate = self
         } else if segue.identifier == "showOngoingTask" , let destination = segue.destination as? OngoingTasksTableViewController {
             destination.delegate = self
+        } else if segue.identifier == "showEditTask" , let destination = segue.destination as? NewTaskViewController, let taskToEdit = sender as? Task {
+            destination.delegate = self
+            destination.taskToEdit = taskToEdit
         }
     }
     
@@ -85,9 +88,28 @@ class TaskViewController: UIViewController, Animatable {
         }
     }
     
+    private func editTask(task: Task) {
+        performSegue(withIdentifier: "showEditTask", sender: task)
+    }
+    
 }
 
-extension TaskViewController: TasksVCDelegate {
+extension TaskViewController: NewTasksVCDelegate {
+    func didEditTask(task: Task) {
+        presentedViewController?.dismiss(animated: true, completion: {
+            guard let id = task.id else { return }
+            self.databaseManager.editTask(id: id, title: task.title, deadline: task.deadline) { [weak self] (result) in
+                switch result {
+                case .success:
+                    self?.showToast(state: .success, message: "Task updated successfully", duration: 2.0)
+                case .failure(let error):
+                    self?.showToast(state: .error, message: error.localizedDescription, duration: 2.0)
+                    print("error: \(error.localizedDescription)")
+                }
+            }
+        })
+    }
+    
     func didAddTask(task: Task) {
         presentedViewController?.dismiss(animated: true, completion: { [unowned self] in
             self.databaseManager.addTask(task: task) { (result) in
@@ -113,8 +135,13 @@ extension TaskViewController: OngoingTasksTVCDelegate {
             self.deleteTask(id: id)
             print("delete task: \(task.title)")
         }
+        let editAction = UIAlertAction(title: "Edit", style: .default) { [unowned self] _ in
+            self.editTask(task: task)
+        }
+        
         alertController.addAction(cancelAction)
         alertController.addAction(deleteAction)
+        alertController.addAction(editAction)
         present(alertController, animated: true, completion: nil)
     }
     

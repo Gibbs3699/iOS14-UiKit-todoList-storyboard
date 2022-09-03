@@ -84,6 +84,10 @@ class CalendarView: UIView {
         }
     }
     
+    func selectDate(date: Date?) {
+        calendar.select(date, scrollToDate: true)
+    }
+    
 }
 
 extension CalendarView: FSCalendarDelegate, FSCalendarDelegateAppearance {
