@@ -27,7 +27,7 @@ class NewTaskViewController: UIViewController {
     private lazy var calendarView: UIView = {
         let view = CalendarView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .systemBackground
+        view.backgroundColor = .secondarySystemBackground
         view.delegate = self
         return view
     }()
@@ -58,12 +58,9 @@ class NewTaskViewController: UIViewController {
         }.store(in: &subscribers)
         
         $deadline.sink { [unowned self] (date) in
-            if date == nil {
-                let currentDateTime = Date()
-                self.deadlineLabel.text = currentDateTime.toString()
-            }else {
-                self.deadlineLabel.text = date?.toString()
-            }
+            let currentDateTime = Date()
+            self.deadlineLabel.text = date == nil ? currentDateTime.toString() : date?.toString()
+            self.deadlineLabel.textColor = date == nil ? .secondaryLabel : UIColor(named: "AdaptColor")
         }.store(in: &subscribers)
     }
     
@@ -135,7 +132,7 @@ class NewTaskViewController: UIViewController {
             return
         }
             
-        let task = Task(title: taskString)
+        let task = Task(title: taskString, deadLine: deadline)
         delegate?.didAddTask(task: task)
     }
     

@@ -22,6 +22,11 @@ class OngoingTasksTableViewCell: UITableViewCell {
     
     func configure(with task: Task) {
         titleLabel.text = task.title
+        deadlineLabel.text = task.deadLine?.toRelativeString()
+        
+        if task.deadLine?.isOverDue() == true {
+            deadlineLabel.textColor = .systemRed
+        }
     }
-
+    
 }

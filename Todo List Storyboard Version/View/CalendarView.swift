@@ -86,11 +86,19 @@ class CalendarView: UIView {
     
 }
 
-extension CalendarView: FSCalendarDelegate {
+extension CalendarView: FSCalendarDelegate, FSCalendarDelegateAppearance {
     
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
         delegate?.calendarViewDidSelectDate(date: date)
         print("Picked date: \(date)")
+    }
+    
+    func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, titleDefaultColorFor date: Date) -> UIColor? {
+        return UIColor(named: "AdaptColor")
+    }
+    
+    func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, fillSelectionColorFor date: Date) -> UIColor? {
+        return .systemGreen
     }
     
 }

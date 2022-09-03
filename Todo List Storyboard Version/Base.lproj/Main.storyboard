@@ -163,7 +163,7 @@
                                                     </stackView>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vAd-Aw-VHc">
                                                         <rect key="frame" x="0.0" y="112" width="382" height="200"/>
-                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="200" id="ZMQ-mR-8Kd"/>
                                                         </constraints>
@@ -171,7 +171,7 @@
                                                 </subviews>
                                             </stackView>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstItem="gIH-c9-kxN" firstAttribute="leading" secondItem="vvg-8b-MOz" secondAttribute="leading" constant="16" id="2pP-kY-GgB"/>
                                             <constraint firstAttribute="bottom" secondItem="gIH-c9-kxN" secondAttribute="bottom" constant="8" id="5OM-V1-TjX"/>
