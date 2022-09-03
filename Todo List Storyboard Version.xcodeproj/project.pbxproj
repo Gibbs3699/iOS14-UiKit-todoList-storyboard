@@ -16,6 +16,8 @@
 		DC8BEF2228C101020087EC0A /* DoneTasksTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8BEF2128C101020087EC0A /* DoneTasksTableViewCell.swift */; };
 		DC8BEF2428C1A7910087EC0A /* Animatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8BEF2328C1A7910087EC0A /* Animatable.swift */; };
 		DC8BEF2628C1F0DD0087EC0A /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8BEF2528C1F0DD0087EC0A /* CalendarView.swift */; };
+		DC8BEF2828C343850087EC0A /* CalendarViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8BEF2728C343850087EC0A /* CalendarViewDelegate.swift */; };
+		DC8BEF2B28C344F80087EC0A /* Extension+Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8BEF2A28C344F80087EC0A /* Extension+Date.swift */; };
 		DC94FDD228BB64810053EEFC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC94FDD128BB64810053EEFC /* AppDelegate.swift */; };
 		DC94FDD428BB64810053EEFC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC94FDD328BB64810053EEFC /* SceneDelegate.swift */; };
 		DC94FDD628BB64810053EEFC /* TaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC94FDD528BB64810053EEFC /* TaskViewController.swift */; };
@@ -40,6 +42,8 @@
 		DC8BEF2128C101020087EC0A /* DoneTasksTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneTasksTableViewCell.swift; sourceTree = "<group>"; };
 		DC8BEF2328C1A7910087EC0A /* Animatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animatable.swift; sourceTree = "<group>"; };
 		DC8BEF2528C1F0DD0087EC0A /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
+		DC8BEF2728C343850087EC0A /* CalendarViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewDelegate.swift; sourceTree = "<group>"; };
+		DC8BEF2A28C344F80087EC0A /* Extension+Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Date.swift"; sourceTree = "<group>"; };
 		DC94FDCE28BB64810053EEFC /* Todo List Storyboard Version.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Todo List Storyboard Version.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC94FDD128BB64810053EEFC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DC94FDD328BB64810053EEFC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -96,6 +100,7 @@
 			children = (
 				DC8BEF1C28BF3DE20087EC0A /* TasksVCDelegate.swift */,
 				DC8BEF2328C1A7910087EC0A /* Animatable.swift */,
+				DC8BEF2728C343850087EC0A /* CalendarViewDelegate.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -108,6 +113,14 @@
 				DC8BEF2528C1F0DD0087EC0A /* CalendarView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		DC8BEF2928C344E90087EC0A /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				DC8BEF2A28C344F80087EC0A /* Extension+Date.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		DC94FDC528BB64810053EEFC = {
@@ -131,6 +144,7 @@
 		DC94FDD028BB64810053EEFC /* Todo List Storyboard Version */ = {
 			isa = PBXGroup;
 			children = (
+				DC8BEF2928C344E90087EC0A /* Extension */,
 				DC8BEF1E28BF423D0087EC0A /* View */,
 				DC8BEF1B28BF3DCB0087EC0A /* Protocol */,
 				DC8BEF1428BF2F3E0087EC0A /* Service */,
@@ -286,7 +300,9 @@
 				DC8BEF2028BF42560087EC0A /* OngoingTasksTableViewCell.swift in Sources */,
 				DC8BEF1628BF2F510087EC0A /* DatabaseManager.swift in Sources */,
 				DC94FDD628BB64810053EEFC /* TaskViewController.swift in Sources */,
+				DC8BEF2828C343850087EC0A /* CalendarViewDelegate.swift in Sources */,
 				DC94FDF228BCA6350053EEFC /* NewTaskViewController.swift in Sources */,
+				DC8BEF2B28C344F80087EC0A /* Extension+Date.swift in Sources */,
 				DC94FDD228BB64810053EEFC /* AppDelegate.swift in Sources */,
 				DC8BEF1D28BF3DE20087EC0A /* TasksVCDelegate.swift in Sources */,
 				DC8BEF2228C101020087EC0A /* DoneTasksTableViewCell.swift in Sources */,

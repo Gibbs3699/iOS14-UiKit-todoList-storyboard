@@ -10,6 +10,8 @@ import FSCalendar
 
 class CalendarView: UIView {
 
+    weak var delegate: CalendarViewDelegate?
+    
     private lazy var calendar: FSCalendar = {
         let calendar = FSCalendar()
         calendar.translatesAutoresizingMaskIntoConstraints = false
@@ -53,6 +55,14 @@ class CalendarView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func willMove(toSuperview newSuperview: UIView?) {
+        if calendar.selectedDate == nil {
+            removeButton.removeFromSuperview()
+        } else if removeButton.isDescendant(of: stackView) == false {
+            stackView.addArrangedSubview(removeButton)
+        }
+    }
+    
     private func setupViews() {
         backgroundColor = .white
         addSubview(stackView)
@@ -68,7 +78,10 @@ class CalendarView: UIView {
     }
     
     @objc func removeButtonTapped(_ sender: UIButton) {
-        print("Remove button tapped!")
+        if let selectedDate = calendar.selectedDate {
+            calendar.deselect(selectedDate)
+            delegate?.calendarViewDidTapRemoveButton()
+        }
     }
     
 }
@@ -76,6 +89,8 @@ class CalendarView: UIView {
 extension CalendarView: FSCalendarDelegate {
     
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
+        delegate?.calendarViewDidSelectDate(date: date)
         print("Picked date: \(date)")
     }
+    
 }
