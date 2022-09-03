@@ -729,6 +729,7 @@ PODS:
   - nanopb/decode (2.30909.0)
   - nanopb/encode (2.30909.0)
   - PromisesObjC (2.1.1)
+  - SoftButton (0.1.0)
 
 DEPENDENCIES:
   - Firebase/Auth
@@ -737,6 +738,7 @@ DEPENDENCIES:
   - FSCalendar
   - Loaf
   - MBProgressHUD
+  - SoftButton
 
 SPEC REPOS:
   trunk:
@@ -761,6 +763,7 @@ SPEC REPOS:
     - MBProgressHUD
     - nanopb
     - PromisesObjC
+    - SoftButton
 
 SPEC CHECKSUMS:
   abseil: ebe5b5529fb05d93a8bdb7951607be08b7fa71bc
@@ -784,7 +787,8 @@ SPEC CHECKSUMS:
   MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
   nanopb: b552cce312b6c8484180ef47159bc0f65a1f0431
   PromisesObjC: ab77feca74fa2823e7af4249b8326368e61014cb
+  SoftButton: 047bf63ec0c6b6c6a19c02a6f9e5ee4c79d853f3
 
-PODFILE CHECKSUM: cf9e0a5c606d5f55ea81f1c40c6c503942dc4de2
+PODFILE CHECKSUM: c7009d7917c1ef0caf3123c3492cc2f759c6daa7
 
 COCOAPODS: 1.11.3

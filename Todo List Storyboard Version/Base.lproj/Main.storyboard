@@ -39,7 +39,7 @@
                             </containerView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zLX-2g-k0W">
                                 <rect key="frame" x="173.5" y="776.5" width="67" height="67"/>
-                                <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" systemColor="systemGreenColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="67" id="Asm-UC-Syg"/>
                                     <constraint firstAttribute="width" constant="67" id="dYw-Wg-md8"/>
@@ -132,6 +132,7 @@
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Riu-iA-fJH">
                                                                 <rect key="frame" x="0.0" y="0.0" width="21" height="40"/>
+                                                                <color key="tintColor" systemColor="systemGreenColor"/>
                                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                 <state key="normal" image="calendar" catalog="system"/>
                                                                 <connections>
@@ -147,6 +148,7 @@
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="40" id="Dzc-Bb-wKG"/>
                                                                 </constraints>
+                                                                <color key="tintColor" systemColor="systemGreenColor"/>
                                                                 <state key="normal" title="Button"/>
                                                                 <buttonConfiguration key="configuration" style="plain" title="Save">
                                                                     <fontDescription key="titleFontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="16"/>
@@ -229,6 +231,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="24" id="hjS-qp-Nm9"/>
                                                     </constraints>
+                                                    <color key="tintColor" systemColor="systemGreenColor"/>
                                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                     <state key="normal" image="checkmark.circle" catalog="system"/>
                                                     <connections>
@@ -290,6 +293,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="24" id="FfJ-Xi-Zyj"/>
                                                     </constraints>
+                                                    <color key="tintColor" systemColor="systemGreenColor"/>
                                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                     <state key="normal" image="circle" catalog="system"/>
                                                     <connections>
@@ -368,6 +372,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

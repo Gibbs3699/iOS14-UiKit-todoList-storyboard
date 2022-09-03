@@ -22,6 +22,13 @@ class NewTaskViewController: UIViewController {
     
     weak var delegate: TasksVCDelegate?
     
+    private lazy var calendarView: UIView = {
+        let view = CalendarView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .systemBackground
+        return view
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -55,6 +62,7 @@ class NewTaskViewController: UIViewController {
     
     private func setupGestures() {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissViewController))
+        tapGesture.delegate = self
         view.addGestureRecognizer(tapGesture)
     }
     
@@ -88,8 +96,26 @@ class NewTaskViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func calendarButtonTapped(_ sender: Any) {
+    private func showCalendar() {
+        view.addSubview(calendarView)
         
+        let height: CGFloat = view.frame.height/2
+        NSLayoutConstraint.activate([
+            calendarView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            calendarView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            calendarView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            calendarView.heightAnchor.constraint(equalToConstant: height),
+        ])
+    }
+    
+    private func dismissCalendarView(completion: () -> Void) {
+        calendarView.removeFromSuperview()
+        completion()
+    }
+    
+    @IBAction func calendarButtonTapped(_ sender: Any) {
+        taskTextField.resignFirstResponder()
+        showCalendar()
     }
     
     @IBAction func saveButtonTapped(_ sender: Any) {
@@ -101,5 +127,20 @@ class NewTaskViewController: UIViewController {
         delegate?.didAddTask(task: task)
     }
     
+}
+
+extension NewTaskViewController: UIGestureRecognizerDelegate {
+    
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        if calendarView.isDescendant(of: view) { // calendar is a subview
+            if touch.view?.isDescendant(of: calendarView) == false {
+                dismissCalendarView { [unowned self] in
+                    self.taskTextField.becomeFirstResponder()
+                }
+            }
+            return false
+        }
+        return true
+    }
 }
 

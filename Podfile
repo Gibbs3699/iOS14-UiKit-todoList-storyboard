@@ -12,6 +12,6 @@ target 'Todo List Storyboard Version' do
  pod 'Firebase/Auth'
  pod 'Loaf'
  pod 'FSCalendar'
-
+ pod 'SoftButton'
 
 end
